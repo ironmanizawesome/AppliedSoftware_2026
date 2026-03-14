@@ -12,8 +12,3 @@ if check_prime(num):
 else:
     print(f"{num} is not a prime number")
 
-num = int(input("Enter a number: "))
-if check_prime(num):
-    print(f"{num} is a prime number")
-else:
-    print(f"{num} is not a prime number")
