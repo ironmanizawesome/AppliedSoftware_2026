@@ -1,10 +1,10 @@
-from flask import Flask
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
+
 @app.route("/")
 def index():
-    return render("index.html") ##이런 느낌으로 렌더 시작하기
+    return render_template("gugudan.html") ##이런 느낌으로 렌더 시작하기
 
 @app.route("/gugudan")
 def gugudan():
