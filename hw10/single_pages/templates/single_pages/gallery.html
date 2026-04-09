@@ -1,0 +1,18 @@
+{% extends 'single_pages/layout.html' %}
+{% load static %}
+
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<div class="section">
+    <h1 class="section-title">Gallery</h1>
+    <p>제 사진을 보고싶으신가요? 맘껏 보여드리죠.</p>
+    <div class="gallery-grid" style="margin-top: 40px;">
+        <img src="{% static 'single_pages/young_1.jpg' %}" alt="어릴때1">
+        <img src="{% static 'single_pages/young_2.jpg' %}" alt="어릴때2">
+        <img src="{% static 'single_pages/young_3.jpg' %}" alt="어릴때3">
+        <img src="{% static 'single_pages/hoodie.jpg' %}" alt="늙은사진">
+        <img src="{% static 'single_pages/old.jpg' %}" alt="늙은사진2">
+    </div>
+</div>
+{% endblock %}
