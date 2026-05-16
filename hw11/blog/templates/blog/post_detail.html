@@ -1,0 +1,15 @@
+{% extends 'single_pages/layout.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="section">
+    {# FBV 땐 detail.html + render로 직접 넘긴 'post' 였음 #}
+    {# CBV(DetailView)는 post_detail.html 자동, 변수도 'post' 자동 제공 #}
+    <h1 class="section-title">{{ post.title }}</h1>
+    <p style="opacity: 0.5; font-size: 0.85rem; margin-bottom: 40px;">{{ post.created_at|date:"Y-m-d H:i" }}</p>
+    <p>{{ post.content }}</p>
+    <br>
+    <a href="/blog/">&larr; 목록으로</a>
+</div>
+{% endblock %}
