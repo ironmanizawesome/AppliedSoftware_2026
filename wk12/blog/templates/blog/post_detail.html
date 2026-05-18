@@ -1,0 +1,24 @@
+{% extends 'single_pages/layout.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="card shadow-sm">
+        {% if post.head_image %}
+        <img src="{{ post.head_image.url }}" class="card-img-top"
+             alt="{{ post.title }}" style="max-height: 420px; object-fit: cover;">
+        {% endif %}
+        <div class="card-body">
+            <h1 class="card-title">{{ post.title }}</h1>
+            <p class="text-muted" style="font-size: 0.85rem;">
+                {{ post.created_at|date:"Y-m-d H:i" }}
+            </p>
+            <hr>
+            <p class="card-text">{{ post.content }}</p>
+            <a href="/blog/" class="btn btn-outline-secondary btn-sm mt-3">&larr; 목록으로</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

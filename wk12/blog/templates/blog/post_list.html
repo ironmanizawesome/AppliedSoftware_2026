@@ -1,0 +1,22 @@
+{% extends 'single_pages/layout.html' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+<div class="section">
+    <h1 class="section-title">Blog</h1>
+    {# 파일명: FBV 땐 index.html 이었는데 CBV 관례 따라 post_list.html 로 바꿈 #}
+    {# 변수: FBV 땐 'posts' 였음 (render의 {'posts': posts}) #}
+    {# CBV(ListView)는 'post_list' 라는 이름으로 자동으로 넘겨줌 #}
+    {% for p in post_list %}
+    <div style="margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #e5dfd6;">
+        {# 링크: FBV 땐 href="/blog/3/" 하드코딩. CBV는 모델의 get_absolute_url 씀 #}
+        <h2><a href="{{ p.get_absolute_url }}">{{ p.title }}</a></h2>
+        <p style="opacity: 0.5; font-size: 0.85rem; margin: 8px 0;">{{ p.created_at|date:"Y-m-d" }}</p>
+        <p>{{ p.content|truncatewords:30 }}</p>
+    </div>
+    {% empty %}
+    <p>게시물이 없습니다.</p>
+    {% endfor %}
+</div>
+{% endblock %}
